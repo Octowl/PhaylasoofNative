@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Body, Left, Right, IconNB } from "native-base";
+import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Textarea, Body, Left, Right, IconNB } from "native-base";
 
 export default class AskQuestion extends Component {
   render() {
@@ -9,30 +9,29 @@ export default class AskQuestion extends Component {
       <Container>
         <Content padder>
           <Card>
-            <CardItem bordered>
+            <CardItem>
               <Body>
-                <Left></Left>
-                <Right>
-                  <Text>اسأل مجرباً ولا تسأل حكيماً</Text>
-                </Right>
+                  <Text style = {{color: '#528D95'}}>اسأل مجرباً ولا تسأل حكيماً</Text>
               </Body>
             </CardItem>
             <CardItem>
               <Body>
-                  <TextInput bordered
-                      style={{height: 75, borderColor: 'gray'}}
+                  <Textarea bordered
+                      style = {styles.textarea}
                       editable = {true}
                       maxLength = {500}
                       numberOfLines = {5}
                       multiline = {true}
-                      placeholder="اكتب سؤالك هنا"
+                      placeholder = "اكتب سؤالك هنا"
+                      placeholderTextColor = "#B4A298"
                     />
+
               </Body>
             </CardItem>
-            <CardItem button onPress={() => alert("تم حفظ السؤال")}>
-              <Button style={styles.card}><Text> اسأل </Text> </Button>
+            <CardItem button>
+              <Button style={styles.card} onPress={() => alert("تم حفظ السؤال")}><Text> اسأل </Text> </Button>
               <Text>  </Text>
-              <Button light><Text> إلغاء </Text> </Button>
+              <Button style={styles.cancel}><Text> إلغاء </Text> </Button>
             </CardItem>
           </Card>
         </Content>
@@ -43,10 +42,19 @@ export default class AskQuestion extends Component {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#9370DB',
+    backgroundColor: '#B4A298',
+  },
+  cancel: {
+    backgroundColor: '#FCE5C5',
   },
   later: {
-    color: 'grey',
+    color: '#C9BDA7',
     fontSize: 12,
-  }
+  },
+  textarea: {
+    height: 75,
+    width: 325,
+    borderColor: '#B4A298',
+    textAlign: 'right'
+  },
 })

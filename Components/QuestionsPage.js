@@ -3,16 +3,15 @@ import {ScrollView, StyleSheet, Text, View, I18nManager} from 'react-native';
 import {Container} from 'native-base';
 
 import QuestionCard from './QuestionCard.js';
-import AskQuestion from './AskQuestion.js';
 
 
-
-export default class FeedPage extends Component {
+export default class QuestionsPage extends Component {
   render() {
     return (
       <Container>
         {/* <ScrollView> */}
-        <AskQuestion />
+        <QuestionCard />
+
         {/* </ScrollView> */}
         {/* <Segments /> */}
       </Container>
