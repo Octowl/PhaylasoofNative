@@ -10,6 +10,7 @@ export default class QuestionsPage extends Component {
     return (
       <Container>
         {/* <ScrollView> */}
+        {/* Aziz: Will this eventually be a list? */}
         <QuestionCard />
 
         {/* </ScrollView> */}

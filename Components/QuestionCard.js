@@ -2,7 +2,14 @@ import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
 import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Body, Left, Right, IconNB } from "native-base";
 
-
+/*************
+* Aziz:
+* the next thing you should do is move the
+* harcoded data in this component into an array
+* of objects in the parent component (QuestionsPage).
+* Then dynamically render the QuestionCard components,
+* passing in the data as props.
+*************/
 
 export default class QuestionCard extends Component {
   render() {

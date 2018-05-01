@@ -1,3 +1,4 @@
+/* Aziz: Clean up your imports. Only import things that you're actually using */
 import React, { Component } from 'react';
 import {ScrollView, StyleSheet, Text, View, I18nManager} from 'react-native';
 import { NativeRouter, Route, Link, Switch } from 'react-router-native';
@@ -11,6 +12,7 @@ import FeedPage from './Components/FeedPage.js'
 
 I18nManager.forceRTL(true);
 
+/* Aziz: Don't push dead code */
 // import Segments from './Components/Segments.js'
 
 export default class App extends Component {
