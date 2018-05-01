@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, TextInput } from 'react-native';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Textarea, Body, Left, Right, IconNB, Picker, Form } from "native-base";
+import { Body, Button, Card, CardItem, CheckBox, Container, Content, Form, Icon, Picker, Text, Textarea } from "native-base";
 
 export default class AskQuestion extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selected2: undefined,
+      checked: false,
     };
   }
 
@@ -50,13 +51,22 @@ export default class AskQuestion extends Component {
                         selectedValue={this.state.selected2}
                         onValueChange={this.onValueChange2.bind(this)}
                         >
-                        <Picker.Item label="علوم البحار" value="key0" />
-                        <Picker.Item label="البيولوجيا" value="key1" />
-                        <Picker.Item label="الرياضيات" value="key2" />
+                        <Picker.Item style={styles.card} label="علوم البحار" value="key0" />
+                        <Picker.Item style={styles.card} label="البيولوجيا" value="key1" />
+                        <Picker.Item style={styles.card} label="الرياضيات" value="key2" />
                         <Picker.Item label="الهندسة" value="key3" />
                         <Picker.Item label="الفيزياء النووية" value="key4" />
                 </Picker>
               </Form>
+            </CardItem>
+            <CardItem>
+              <CheckBox
+                title="Press me"
+                color='#528D95'
+                checked={this.state.checked}
+                onPress={() => this.setState({ checked: !this.state.checked })}
+              />
+              <Text>   مجهول</Text>
             </CardItem>
             <CardItem button>
               <Button small style={styles.card} onPress={() => alert("تم حفظ السؤال")}><Text> اسأل </Text> </Button>

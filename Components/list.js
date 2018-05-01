@@ -23,9 +23,9 @@ var list = [
       bestAnswer: '',
     },
     {
-      question: 'لماذا يعيش السمك في الماء',
-      category: 'علوم البحار',
-      numberOfAnswers: '8',
+      question: 'لماذا نحن هنا؟',
+      category: 'فلسفة',
+      numberOfAnswers: '3',
       bestAnswerProfileName: 'ليلى الكندري',
       bestAnswerProfileTitle: '',
       bestAnswerProfilePic: '',

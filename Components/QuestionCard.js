@@ -1,40 +1,42 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Body, Left, Right, IconNB } from "native-base";
+import { Content, Button, Card, CardItem, Text, Body } from "native-base";
 import list from './list.js'
 
 export default class QuestionCard extends Component {
 
   render() {
+    const question = this.props.question;
+    console.log(question);
 
     return (
-      <Container>
         <Content padder>
           <Card>
             <CardItem bordered button onPress={() => alert("هممممممم")}>
               <Body>
-                <Text style={{textAlign: 'right', color: '#528D95'}}>علم البحار</Text>
+                <Text style={{textAlign: 'right', color: '#528D95'}}>{question.category}</Text>
               </Body>
             </CardItem>
+
             <CardItem button onPress={() => alert("هممممممم")}>
               <Body>
                   <Text  style = {{color: '#528D95'}}>
-                    {list[0].question}
+                    {question.question}
                   </Text>
               </Body>
             </CardItem>
 
             <CardItem header button onPress={() => alert("هممممممم")}>
-                <Text style={styles.numberofanswers}>7 أجوبة</Text>
+                <Text style={styles.numberofanswers}>{question.numberOfAnswers} أجوبة</Text>
             </CardItem>
+
             <CardItem button>
-              <Button style={styles.card} onPress={() => alert("تم حفظ الإجابة")}><Text> جاوب </Text> </Button>
+              <Button small style={styles.card} onPress={() => alert("تم حفظ الإجابة")}><Text> جاوب </Text> </Button>
               <Text>    </Text>
               <Text style={styles.later}> جاوب لاحقاً </Text>
             </CardItem>
           </Card>
         </Content>
-      </Container>
     );
   }
 }

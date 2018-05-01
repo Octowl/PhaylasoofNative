@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text } from 'native-base';
+import { Link } from 'react-router-native';
+import { Badge, Button, Footer, FooterTab, Icon, Text } from 'native-base';
 
 export default class FooterStyle extends Component {
   render() {
     return (
         <Footer style={styles.headerstyle}>
           <FooterTab>
-            <Button vertical>
+            <Link to='/' component={Button} vertical>
               <Icon name="home" style={styles.icon} />
               <Text style={styles.icontext}>الرئيسية</Text>
-            </Button>
-            <Button vertical>
+            </Link>
+            <Link to='/questions' component={Button} transparent vertical>
               <Icon name="paper" style={styles.icon} />
               <Text style={styles.icontext}>جاوب</Text>
-            </Button>
-            <Button vertical style={styles.askiconbg}>
+            </Link>
+            <Link to='/askquestion' component={Button} vertical>
               <Icon name="add" style={styles.askicon}/>
-              <Text style={styles.askicontext}>اسأل</Text>
-            </Button>
-            <Button vertical>
+              <Text style={styles.icontext}>اسأل</Text>
+            </Link>
+            <Link to='/questiondetail' component={Button} vertical badge>
+              <Badge ><Text>5</Text></Badge>
               <Icon active name="notifications" style={styles.icon} />
               <Text style={styles.icontext}>إشعارات</Text>
-            </Button>
+            </Link>
             <Button vertical>
               <Icon name="person" style={styles.icon} />
               <Text style={styles.icontext}>حسابك</Text>
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
   },
 
   askicon: {
-        color: '#528D95',
+        color: 'white',
         fontSize: 40,
   },
 
