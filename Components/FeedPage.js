@@ -2,20 +2,25 @@ import React, { Component } from 'react';
 import {ScrollView, StyleSheet, Text, View, I18nManager} from 'react-native';
 import {Container} from 'native-base';
 
-import QuestionCard from './QuestionCard.js';
+import AnsweredQuestionCard from './AnsweredQuestionCard.js';
 import AskQuestion from './AskQuestion.js';
-
-
 
 export default class FeedPage extends Component {
   render() {
     return (
       <Container>
-        {/* <ScrollView> */}
+        <Text style={styles.intro}>أهلاً بكم في عالم المتفلسفين</Text>
         <AskQuestion />
-        {/* </ScrollView> */}
-        {/* <Segments /> */}
+        <AnsweredQuestionCard />
       </Container>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  intro: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#528D95',
+  },
+});

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Body, Left, Right, IconNB } from "native-base";
+import { Container, Header, Title, Thumbnail, Content, Button, Icon, Card, CardItem, Text, Body, Left, Right, IconNB } from "native-base";
+import laila from '../images/laila.jpg';
 import list from './list.js'
 
-export default class QuestionCard extends Component {
+export default class AnsweredQuestionCard extends Component {
 
   render() {
-
     return (
       <Container>
         <Content padder>
@@ -23,12 +23,19 @@ export default class QuestionCard extends Component {
                   </Text>
               </Body>
             </CardItem>
-
             <CardItem header button onPress={() => alert("هممممممم")}>
-                <Text style={styles.numberofanswers}>7 أجوبة</Text>
+              <Body>
+                <Right><Thumbnail bordered source={list[0].bestAnswerProfilePic} /></Right>
+                <Left>
+                  <Text style={styles.answerprofile}>{list[0].bestAnswerProfileName} - {list[0].bestAnswerProfileTitle}</Text>
+                </Left>
+
+                <Text style={styles.bestanswer}>{list[0].bestAnswer}</Text>
+              </Body>
             </CardItem>
+
             <CardItem button>
-              <Button style={styles.card} onPress={() => alert("تم حفظ الإجابة")}><Text> جاوب </Text> </Button>
+              <Button small style={styles.card} onPress={() => alert("تم حفظ الإجابة")}><Text> جاوب </Text> </Button>
               <Text>    </Text>
               <Text style={styles.later}> جاوب لاحقاً </Text>
             </CardItem>
@@ -43,9 +50,13 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#B4A298',
   },
-  numberofanswers: {
-    color: '#C9BDA7',
+  answerprofile: {
+    color: '#739B93',
     fontSize: 14,
+  },
+  bestanswer: {
+    color: '#739B93',
+    fontSize: 18,
   },
   later: {
     color: '#C9BDA7',

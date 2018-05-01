@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import {StyleSheet, TextInput} from 'react-native';
-
-import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Textarea, Body, Left, Right, IconNB } from "native-base";
+import { StyleSheet, TextInput } from 'react-native';
+import { Container, Header, Title, Content, Button, Icon, Card, CardItem, Text, Textarea, Body, Left, Right, IconNB, Picker, Form } from "native-base";
 
 export default class AskQuestion extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected2: undefined,
+    };
+  }
+
+  onValueChange2(category: string) {
+    this.setState({ selected2: category });
+  }
+
   render() {
     return (
       <Container>
@@ -25,8 +35,29 @@ export default class AskQuestion extends Component {
                       placeholder = "اكتب سؤالك هنا"
                       placeholderTextColor = "#B4A298"
                     />
-
               </Body>
+            </CardItem>
+            <CardItem>
+              <Form>
+                <Picker mode="dropdown"
+                        iosIcon={<Icon name="ios-arrow-down-outline" />}
+                        iosHeader="المجال"
+                        headerBackButtonText="العودة"
+                        headerBackButtonColor="#C9BDA7"
+                        placeholder="اختر مجال سؤالك"
+                        placeholderTextColor = "#B4A298"
+                        placeholderIconColor="#B4A298"
+                        selectedValue={this.state.selected2}
+                        onValueChange={this.onValueChange2.bind(this)}
+                        >
+
+                        <Picker.Item label="علوم البحار" value="key0" />
+                        <Picker.Item label="البيولوجيا" value="key1" />
+                        <Picker.Item label="الرياضيات" value="key2" />
+                        <Picker.Item label="الهندسة" value="key3" />
+                        <Picker.Item label="الفيزياء النووية" value="key4" />
+                </Picker>
+              </Form>
             </CardItem>
             <CardItem button>
               <Button style={styles.card} onPress={() => alert("تم حفظ السؤال")}><Text> اسأل </Text> </Button>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NativeRouter, Route, Link, Switch } from 'react-router-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 
@@ -8,9 +8,9 @@ export default class HeaderStyle extends Component {
     return (
         <Header style={styles.headerstyle}>
             <Right>
-            <Button transparent >
+            <Link to='/' component={Button} transparent >
               <Icon style={styles.icon} name='arrow-forward' />
-            </Button>
+            </Link>
             </Right>
           <Body>
             <Title style={styles.icon}>فيلسوف</Title>
@@ -26,7 +26,6 @@ export default class HeaderStyle extends Component {
             <Icon style={styles.icon} name='more' />
           </Button>
           </Left>
-
         </Header>
     );
   }
