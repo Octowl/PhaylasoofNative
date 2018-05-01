@@ -24,6 +24,7 @@ export default class App extends Component {
             <Route path='/questions' component={QuestionsPage}/>
             <Route path='/askquestion' component={AskQuestion}/>
             <Route path='/questiondetail' component={QuestionDetail}/>
+            <Route path='/categorylist' />
           </Switch>
           <FooterStyle />
         </Container>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
+import { Link } from 'react-router-native';
 import { Content, Button, Card, CardItem, Text, Body } from "native-base";
 import list from './list.js'
 
@@ -12,24 +13,21 @@ export default class QuestionCard extends Component {
     return (
         <Content padder>
           <Card>
-            <CardItem bordered button onPress={() => alert("هممممممم")}>
+            <Link to='/questiondetail' component={CardItem} onPress={() => question} button >
               <Body>
-                <Text style={{textAlign: 'right', color: '#528D95'}}>{question.category}</Text>
+                <Text style={styles.category}>{question.category}</Text>
               </Body>
-            </CardItem>
-
-            <CardItem button onPress={() => alert("هممممممم")}>
+            </Link>
+            <Link to='/questiondetail' component={CardItem} onPress={() => question} button >
               <Body>
                   <Text  style = {{color: '#528D95'}}>
                     {question.question}
                   </Text>
               </Body>
-            </CardItem>
-
-            <CardItem header button onPress={() => alert("هممممممم")}>
+            </Link>
+            <Link to='/questiondetail' component={CardItem} onPress={() => question} button >
                 <Text style={styles.numberofanswers}>{question.numberOfAnswers} أجوبة</Text>
-            </CardItem>
-
+            </Link>
             <CardItem button>
               <Button small style={styles.card} onPress={() => alert("تم حفظ الإجابة")}><Text> جاوب </Text> </Button>
               <Text>    </Text>
@@ -44,6 +42,11 @@ export default class QuestionCard extends Component {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#B4A298',
+  },
+  category: {
+    textAlign: 'right',
+    color: '#528D95',
+    fontSize: 14,
   },
   numberofanswers: {
     color: '#C9BDA7',

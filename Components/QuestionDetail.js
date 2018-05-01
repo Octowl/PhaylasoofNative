@@ -21,7 +21,6 @@ export default class QuestionDetail extends Component {
                 <Thumbnail bordered source={list[0].bestAnswerProfilePic} />
                 <Text style={styles.answerprofile}>{list[0].bestAnswerProfileName} - {list[0].bestAnswerProfileTitle}</Text>
                 <Text style={styles.bestanswer}>{list[0].bestAnswer}</Text>
-
               </Body>
         </Content>
       </Container>
