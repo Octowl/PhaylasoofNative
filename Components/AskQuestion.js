@@ -50,7 +50,6 @@ export default class AskQuestion extends Component {
                         selectedValue={this.state.selected2}
                         onValueChange={this.onValueChange2.bind(this)}
                         >
-
                         <Picker.Item label="علوم البحار" value="key0" />
                         <Picker.Item label="البيولوجيا" value="key1" />
                         <Picker.Item label="الرياضيات" value="key2" />
@@ -60,9 +59,9 @@ export default class AskQuestion extends Component {
               </Form>
             </CardItem>
             <CardItem button>
-              <Button style={styles.card} onPress={() => alert("تم حفظ السؤال")}><Text> اسأل </Text> </Button>
+              <Button small style={styles.card} onPress={() => alert("تم حفظ السؤال")}><Text> اسأل </Text> </Button>
               <Text>  </Text>
-              <Button style={styles.cancel}><Text> إلغاء </Text> </Button>
+              <Button small style={styles.cancel}><Text> إلغاء </Text> </Button>
             </CardItem>
           </Card>
         </Content>

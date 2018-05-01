@@ -16,15 +16,9 @@ export default class HeaderStyle extends Component {
             <Title style={styles.icon}>فيلسوف</Title>
           </Body>
           <Left>
-          <Button transparent>
-            <Icon style={styles.icon} name='search' />
-          </Button>
           <Link to='/questions' component={Button} transparent >
-            <Icon style={styles.icon} name='heart' />
+            <Icon style={styles.icon} name='search' />
           </Link>
-          <Button transparent>
-            <Icon style={styles.icon} name='more' />
-          </Button>
           </Left>
         </Header>
     );

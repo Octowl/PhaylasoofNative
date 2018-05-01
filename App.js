@@ -4,14 +4,13 @@ import { NativeRouter, Route, Link, Switch } from 'react-router-native';
 import {Container} from 'native-base';
 
 import HeaderStyle from './Components/HeaderStyle.js';
+import FooterStyle from './Components/FooterStyle.js';
 import AskQuestion from './Components/AskQuestion.js';
 import QuestionCard from './Components/QuestionCard.js';
 import QuestionsPage from './Components/QuestionsPage.js';
 import FeedPage from './Components/FeedPage.js'
 
 I18nManager.forceRTL(true);
-
-// import Segments from './Components/Segments.js'
 
 export default class App extends Component {
   render() {
@@ -23,7 +22,7 @@ export default class App extends Component {
             <Route exact path='/' component={FeedPage} />
             <Route path='/questions' component={QuestionsPage}/>
           </Switch>
-        {/* <Segments /> */}
+          <FooterStyle />
         </Container>
       </NativeRouter>
     );
