@@ -2,21 +2,18 @@ import { observer } from "mobx-react";
 import React, { Component } from 'react';
 import {Container, Content, List} from 'native-base';
 
-import questions from '../list';
 import QuestionCard from './Cards/QuestionCard.js';
 import Store from '../Store/Store.js'
 
 
-export default class QuestionsPage extends Component {
+export default class QuestionList extends Component {
 
   render() {
-    // console.log(Store.QuestionObject);
-
     return (
       <Container>
         <Content>
           <List
-            dataArray={questions}
+            dataArray={Store.questions.slice()}
             renderRow={(question) => <QuestionCard question={question} />}
           />
         </Content>

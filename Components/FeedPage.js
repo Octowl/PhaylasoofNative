@@ -5,17 +5,16 @@ import { Container, Content, List } from 'native-base';
 import AnsweredQuestionCard from './Question/Cards/AnsweredQuestionCard.js';
 import QuestionCard from './Question/Cards/QuestionCard.js';
 import AskQuestionCard from './Question/Cards/AskQuestionCard.js';
-import questions from './list';
+import Store from './Store/Store.js';
 
 export default class FeedPage extends Component {
   render() {
     return (
       <Container>
         <Text style={styles.intro}>أهلاً بكم في عالم المتفلسفين</Text>
-        <AskQuestionCard />
         <Content>
           <List
-            dataArray={questions}
+            dataArray={Store.questions.slice()}
             renderRow={(question) => <QuestionCard question={question} />}
           />
         </Content>

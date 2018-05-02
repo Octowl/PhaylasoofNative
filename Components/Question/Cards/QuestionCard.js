@@ -3,8 +3,6 @@ import {StyleSheet} from 'react-native';
 import { Link } from 'react-router-native';
 import { Content, Button, Card, CardItem, Text, Body } from "native-base";
 
-import list from '../../list.js'
-
 export default class QuestionCard extends Component {
 
   render() {
@@ -13,19 +11,19 @@ export default class QuestionCard extends Component {
     return (
         <Content padder>
           <Card>
-            <Link to='/questiondetail' component={CardItem} button >
+            <Link to={`/questiondetail/${question.id}`} component={CardItem} button>
               <Body>
                 <Text style={styles.category}>{question.category}</Text>
               </Body>
             </Link>
-            <Link to='/questiondetail' component={CardItem} button >
+            <Link to={`/questiondetail/${question.id}`} component={CardItem} button>
               <Body>
                   <Text  style = {{color: '#528D95'}}>
                     {question.question}
                   </Text>
               </Body>
             </Link>
-            <Link to='/questiondetail' component={CardItem} button >
+            <Link to={`/questiondetail/${question.id}`} component={CardItem} button>
                 <Text style={styles.numberofanswers}>{question.numberOfAnswers} أجوبة</Text>
             </Link>
             <CardItem button>

@@ -12,19 +12,19 @@ export default class FooterStyle extends Component {
               <Icon name="home" style={styles.icon} />
               <Text style={styles.icontext}>الرئيسية</Text>
             </Link>
-            <Link to='/questions' component={Button} transparent vertical>
+            <Link to='/categorylist' component={Button} transparent vertical>
               <Icon name="paper" style={styles.icon} />
-              <Text style={styles.icontext}>جاوب</Text>
+              <Text style={styles.icontext}>المجالات</Text>
             </Link>
             <Link to='/askquestion' component={Button} vertical>
               <Icon name="add" style={styles.askicon}/>
               <Text style={styles.icontext}>اسأل</Text>
             </Link>
-            <Button vertical badge>
+            <Link to='/categorylist' component={Button} vertical badge>
               <Badge ><Text>5</Text></Badge>
               <Icon active name="notifications" style={styles.icon} />
               <Text style={styles.icontext}>إشعارات</Text>
-            </Button>
+            </Link>
             <Button vertical>
               <Icon name="person" style={styles.icon} />
               <Text style={styles.icontext}>حسابك</Text>
