@@ -1,5 +1,5 @@
 import { extendObservable } from "mobx";
-import laila from '../images/laila.jpg';
+import laila from '../../images/laila.jpg';
 
 
 class Store {

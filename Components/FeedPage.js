@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, I18nManager } from 'react-native';
 import { Container, Content, List } from 'native-base';
 
-import AnsweredQuestionCard from './AnsweredQuestionCard.js';
-import QuestionCard from './QuestionCard.js';
-import AskQuestion from './AskQuestion.js';
+import AnsweredQuestionCard from './Question/Cards/AnsweredQuestionCard.js';
+import QuestionCard from './Question/Cards/QuestionCard.js';
+import AskQuestionCard from './Question/Cards/AskQuestionCard.js';
 import questions from './list';
 
 export default class FeedPage extends Component {
@@ -12,7 +12,7 @@ export default class FeedPage extends Component {
     return (
       <Container>
         <Text style={styles.intro}>أهلاً بكم في عالم المتفلسفين</Text>
-        <AskQuestion />
+        <AskQuestionCard />
         <Content>
           <List
             dataArray={questions}

@@ -5,11 +5,11 @@ import {Container} from 'native-base';
 
 import HeaderStyle from './Components/HeaderStyle.js';
 import FooterStyle from './Components/FooterStyle.js';
-import AskQuestion from './Components/AskQuestion.js';
-import QuestionsPage from './Components/QuestionsPage.js';
+import AskQuestionCard from './Components/Question/Cards/AskQuestionCard.js';
+import QuestionsPage from './Components/Question/QuestionsPage.js';
 import FeedPage from './Components/FeedPage.js';
-import QuestionDetail from './Components/QuestionDetail.js';
-
+import QuestionDetail from './Components/Question/QuestionDetail.js';
+import CategoryList from './Components/Category/CategoryList.js';
 
 I18nManager.forceRTL(true);
 
@@ -22,9 +22,9 @@ export default class App extends Component {
           <Switch>
             <Route exact path='/' component={FeedPage} />
             <Route path='/questions' component={QuestionsPage}/>
-            <Route path='/askquestion' component={AskQuestion}/>
+            <Route path='/askquestion' component={AskQuestionCard}/>
             <Route path='/questiondetail' component={QuestionDetail}/>
-            <Route path='/categorylist' />
+            {/* <Route path='/categorylist' component={CategoryList} /> */}
           </Switch>
           <FooterStyle />
         </Container>

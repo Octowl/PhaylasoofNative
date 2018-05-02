@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
 import { Container, Thumbnail, Content, Button, Card, CardItem, Text, Body, Left, Right } from "native-base";
-import laila from '../images/laila.jpg';
-import list from './list.js'
+
+import laila from '../../images/laila.jpg';
+import list from '../list.js'
 
 export default class QuestionDetail extends Component {
 
   render() {
+    const question = this.props.question;
+    console.log(question);
     return (
       <Container>
         <Content padder>
