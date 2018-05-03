@@ -11,6 +11,7 @@ export default class AskQuestion extends Component {
     };
   }
 
+  /* Aziz: what's going on with this method? */
   onValueChange2(category: string) {
     this.setState({ selected2: category });
   }

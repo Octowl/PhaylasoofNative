@@ -6,6 +6,10 @@ import laila from '../../images/laila.jpg';
 class myStore {
     constructor() {
         extendObservable(this, {
+          /*
+          * Aziz: it might make more sense to
+          * include the questions in each individual category
+          */
           apicategories : [],
           questions : [
               {

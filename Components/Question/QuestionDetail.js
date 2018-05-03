@@ -19,6 +19,7 @@ export default class QuestionDetail extends Component {
                 <Text style={{textAlign: 'right', color: '#528D95'}}>{question.category}</Text>
                 <Text  style = {{color: '#528D95'}}>
                   {question.question}
+                  {/* Aziz: you can add a marginBottom to the style instead of a '\n' */}
                   {"\n"}
                 </Text>
                 <Button small style={styles.card} onPress={() => alert("تم حفظ الإجابة")}><Text> جاوب </Text> </Button>

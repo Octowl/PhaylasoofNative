@@ -7,6 +7,7 @@ import QuestionCard from './Question/Cards/QuestionCard.js';
 import AskQuestionCard from './Question/Cards/AskQuestionCard.js';
 import Store from './Store/Store.js';
 
+/* Aziz: doesn't the FeedPage need to be an observer? */
 export default class FeedPage extends Component {
   render() {
     return (

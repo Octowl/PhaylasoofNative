@@ -11,6 +11,10 @@ export default class QuestionCard extends Component {
     return (
         <Content padder>
           <Card>
+            {/*
+              * Aziz: You can probably wrap an entire section in a Link
+              * rather than wrapping each section seperately
+              */}
             <Link to={`/questiondetail/${question.id}`} component={CardItem} button>
               <Body>
                 <Text style={styles.category}>{question.category}</Text>

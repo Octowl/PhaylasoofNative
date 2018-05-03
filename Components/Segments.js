@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Segment, Content, Text } from 'native-base';
 
+/* Aziz: Is this file being used at all?*/
 
 ​export default class Segments extends Component {
   render() {
