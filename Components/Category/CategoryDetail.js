@@ -1,33 +1,48 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
-import { Container, Thumbnail, Content, Button, Card, CardItem, Text, Body, Left, Right } from "native-base";
+import {observer} from 'mobx-react';
+import { Body, Button, Card, CardItem, Container, Content, Left, Right, Thumbnail, Text, List } from "native-base";
 
-import Store from '../Store/Store.js'
+import Store from '../Store/Store.js';
+import QuestionCard from '../Question/Cards/QuestionCard.js';
 
-export default class CategoryDetail extends Component {
+export default observer(class CategoryDetail extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      category: Store.getCategoryByID(this.props.match.params.categoryID)
+    }
+  }
+
+  componentDidMount() {
+    Store.fetchQuestions(this.state.category.questions);
+  }
 
   render() {
-
-    const categoryID = this.props.match.params.categoryID;
-    const category = Store.getCategoryByID(categoryID);
-    console.log(category);
-
+    const questions = Store.apiquestions;
+    console.log(questions);
     return (
       <Container>
-        <Content padder>
+        <Content >
               <Body>
-                <Text style={{textAlign: 'right', color: '#528D95'}}>{category.category}</Text>
+                {/* <Thumbnail bordered source={{uri: this.state.category.image}}/> */}
+                <Text style={{textAlign: 'right', color: '#528D95'}}>{this.state.category.category_title}</Text>
                 <Text  style = {{color: '#528D95'}}>
-                  {category.numberOfQuestions}
+                  {this.state.category.category_description}
                   {"\n"}
                 </Text>
                 <Button small style={styles.card}><Text> تابع </Text> </Button>
+                <List
+                    dataArray={questions.slice()}
+                    renderRow={(question) => <QuestionCard question={question} />}
+                />
+
               </Body>
         </Content>
       </Container>
     );
   }
-}
+})
 
 const styles = StyleSheet.create({
   card: {

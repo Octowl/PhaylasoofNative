@@ -7,6 +7,7 @@ export default class QuestionCard extends Component {
 
   render() {
     const question = this.props.question;
+    // console.log(question);
 
     return (
         <Content padder>
@@ -19,7 +20,7 @@ export default class QuestionCard extends Component {
             <Link to={`/questiondetail/${question.id}`} component={CardItem} button>
               <Body>
                   <Text  style = {{color: '#528D95'}}>
-                    {question.question}
+                    {question.question_content}
                   </Text>
               </Body>
             </Link>

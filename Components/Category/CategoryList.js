@@ -6,18 +6,18 @@ import CategoryCard from './CategoryCard.js';
 import Store from '../Store/Store.js';
 
 
-export default class CategoryList extends Component {
+export default observer(class CategoryList extends Component {
 
   render() {
     return (
       <Container>
         <Content>
           <List
-            dataArray={Store.apicategories.slice()}
+            dataArray={Store.categories.slice()}
             renderRow={(category) => <CategoryCard category={category} />}
           />
         </Content>
       </Container>
     );
   }
-};
+})

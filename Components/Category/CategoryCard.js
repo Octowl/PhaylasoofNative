@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
 import { Link } from 'react-router-native';
-import { Content, Button, Card, CardItem, Text, Body } from "native-base";
+import { Body, Button, Card, CardItem, Content, Text, Thumbnail } from "native-base";
 
 export default class CategoryCard extends Component {
 
   render() {
     const category = this.props.category;
-    console.log(category);
+
+    console.log(category.questions)
 
     return (
         <Content padder>
           <Card>
             <Link to={`/categorydetail/${category.id}`} component={CardItem} button >
               <Body>
+                  <Thumbnail bordered source={category.image}/>
                   <Text  style = {{color: '#528D95'}}>
                     {category.category_title}
                   </Text>
               </Body>
             </Link>
             <Link to={`/categorydetail/${category.id}`} component={CardItem} button >
-                <Text style={styles.numberofanswers}>{category.numberOfQuestions} سؤال</Text>
+                <Text style={styles.numberofanswers}> سؤال</Text>
                 <Text>{"\t"}</Text>
-                <Text style={styles.numberofanswers}>{category.numberOfFollowers} متابع</Text>
+                <Text style={styles.numberofanswers}> متابع</Text>
             </Link>
             <CardItem button>
               <Button small style={styles.card}><Text> تابع </Text> </Button>

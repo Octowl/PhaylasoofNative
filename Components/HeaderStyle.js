@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
 import { Header, Body, Button, Icon, Title } from 'native-base';
 
+import SigninPage from './HomePage/SigninPage.js';
+
 export default class HeaderStyle extends Component {
   render() {
     return (

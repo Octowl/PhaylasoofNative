@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {observer} from 'mobx-react';
 import { StyleSheet, Text, I18nManager } from 'react-native';
 import { Container, Content, List } from 'native-base';
 
@@ -7,7 +8,7 @@ import QuestionCard from './Question/Cards/QuestionCard.js';
 import AskQuestionCard from './Question/Cards/AskQuestionCard.js';
 import Store from './Store/Store.js';
 
-export default class FeedPage extends Component {
+export default observer(class FeedPage extends Component {
   render() {
     return (
       <Container>
@@ -21,7 +22,7 @@ export default class FeedPage extends Component {
       </Container>
     );
   }
-}
+})
 
 const styles = StyleSheet.create({
   intro: {

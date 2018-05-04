@@ -20,15 +20,15 @@ export default class FooterStyle extends Component {
               <Icon name="add" style={styles.askicon}/>
               <Text style={styles.icontext}>اسأل</Text>
             </Link>
-            <Link to='/categorylist' component={Button} vertical badge>
+            <Link to='/signup' component={Button} vertical badge>
               <Badge ><Text>5</Text></Badge>
               <Icon active name="notifications" style={styles.icon} />
               <Text style={styles.icontext}>إشعارات</Text>
             </Link>
-            <Button vertical>
+            <Link to='/signin' component={Button} vertical>
               <Icon name="person" style={styles.icon} />
               <Text style={styles.icontext}>حسابك</Text>
-            </Button>
+            </Link>
           </FooterTab>
         </Footer>
     );

@@ -4,10 +4,17 @@ import axios from 'axios';
 import laila from '../../images/laila.jpg';
 
 class myStore {
-    constructor() {
-        extendObservable(this, {
-          apicategories : [],
-          questions : [
+  constructor() {
+    extendObservable(this, {
+      currentUser : localStorage.getItem("currentUser"),
+      token : localStorage.getItem("token"),
+      error : [],
+      username : "",
+      password : "",
+
+      categories : [],
+      apiquestions : [],
+      questions : [
               {
                 id: 1,
                 question: 'لماذا تطير الطيور في السماء؟',
@@ -53,14 +60,88 @@ class myStore {
               },
           ],
         })
-    }
+      }
+
+  signup() {
+    return this.storeUser('signup');
+  }
+
+  login() {
+    return this.storeUser('login');
+  }
+
+  logout() {
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("token");
+    this.currentUser = null;
+    this.token = null;
+  }
+
+  storeUser(type) {
+    return axios.post(`http://127.0.0.1:8000/${type}/`, {
+      username: this.username,
+      password: this.password
+    })
+    .then(res => res.data)
+    .then(({username, token}) => {
+      localStorage.setItem("currentUser", username);
+      localStorage.setItem("token", token);
+      this.currentUser = username;
+      this.token = token;
+      this.resetForm();
+    })
+    .catch(err => {
+      Object.entries(err.response.data).forEach(
+        ([errType, errList]) =>
+          this.error = this.error.concat(errList.map(
+            message => <p key={errType+message}><strong>{errType}:</strong> {message}</p>
+          ))
+        );
+      });
+  }
+
+  resetForm() {
+    console.log("here")
+    this.error = [];
+    this.username = "";
+    this.password = "";
+  }
+
+  get isLoggedIn() {
+    return !!this.token;
+  }
 
     fetchCategories() {
-      return axios.get('http://192.168.100.168/api/category_list/')
+      return axios.get('http://127.0.0.1:8000/api/category_list/')
             .then(res => res.data)
             .then(categories => {
-              this.apicategories = categories;
-              console.log(this.apicategories);
+              this.categories = categories;
+            })
+            .catch(err => console.error(err));
+          }
+
+          // fetchCategories() {
+          //   return axios.get('http://127.0.0.1:8000/api/category_list/')
+          //         .then(res => res.data)
+          //         .then(
+          //           categories => {
+          //             categories.forEach(
+          //               category => this.fetchQuestions(category.questions)
+          //                 .then(questions => {
+          //                   category.questions = questions;
+          //                 })
+          //             )
+          //             this.categories = categories;
+          //           }
+          //         )
+          //         .catch(err => console.error(err));
+          //       }
+
+    fetchQuestions(questionsUrl) {
+      return axios.get(questionsUrl)
+            .then(res => res.data)
+            .then(questions => {
+              this.apiquestions = questions;
             })
             .catch(err => console.error(err));
           }

@@ -10,7 +10,6 @@ export default class QuestionDetail extends Component {
 
     const questionID = this.props.match.params.questionID;
     const question = Store.getQuestionByID(questionID);
-    console.log(question);
 
     return (
       <Container>
