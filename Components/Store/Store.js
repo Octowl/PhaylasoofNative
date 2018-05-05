@@ -1,15 +1,19 @@
 import { extendObservable } from "mobx";
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 
 import laila from '../../images/laila.jpg';
 
 class myStore {
   constructor() {
     extendObservable(this, {
-      currentUser : localStorage.getItem("currentUser"),
-      token : localStorage.getItem("token"),
+      currentUser : AsyncStorage.getItem("currentUser"),
+      token : AsyncStorage.getItem("token"),
       error : [],
       username : "",
+      firstname: "",
+      lastname: "",
+      email: "",
       password : "",
 
       categories : [],
@@ -63,7 +67,7 @@ class myStore {
       }
 
   signup() {
-    return this.storeUser('signup');
+    return this.storeUser('register');
   }
 
   login() {
@@ -71,21 +75,24 @@ class myStore {
   }
 
   logout() {
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("token");
+    AsyncStorage.removeItem("currentUser");
+    AsyncStorage.removeItem("token");
     this.currentUser = null;
     this.token = null;
   }
 
   storeUser(type) {
-    return axios.post(`http://127.0.0.1:8000/${type}/`, {
+    return axios.post(`http://127.0.0.1:8000/api/${type}/`, {
       username: this.username,
-      password: this.password
+      firstname: this.firstname,
+      lastname: this.lastname,
+      email: this.email,
+      password: this.password,
     })
     .then(res => res.data)
     .then(({username, token}) => {
-      localStorage.setItem("currentUser", username);
-      localStorage.setItem("token", token);
+      AsyncStorage.setItem("currentUser", username);
+      AsyncStorage.setItem("token", token);
       this.currentUser = username;
       this.token = token;
       this.resetForm();

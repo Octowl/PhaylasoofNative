@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-native';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Button, Title } from 'native-base';
 
 export default class SigninPage extends Component {
 
   render() {
     return (
-        <View style={styles.container}>
-          <Text style={styles.title}>تسجيل الدخول</Text>
-          <TextInput style={styles.textinput} placeholder="اسم المستخدم" placeholderTextColor='#739B93' />
-          <TextInput style={styles.textinput} placeholder="كلمة السر" placeholderTextColor='#739B93' secureTextEntry={true} />
-          <TouchableOpacity style={styles.buttonstyle}>
-            <Text style={styles.buttontext}>سجل دخولك</Text>
-          </TouchableOpacity>
-          <Link to='./signup' component={Button} transparent>
-            <Text style={styles.register}>
-              ألا تمتلك حساباً؟ سجل الآن!
-            </Text>
-          </Link>
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.title}>تسجيل الدخول</Text>
+        <TextInput style={styles.textinput} placeholder='اسم المستخدم' placeholderTextColor='#739B93'
+                   autoCapitalize='none' onChangeText={this.setName}/>
+        <TextInput style={styles.textinput} placeholder="كلمة السر" placeholderTextColor='#739B93' secureTextEntry={true} />
+        <TouchableOpacity style={styles.buttonstyle}>
+          <Text style={styles.buttontext}>سجل دخولك</Text>
+        </TouchableOpacity>
+        <Link to='./signup' component={Button} transparent>
+          <Text style={styles.register}>
+            ألا تمتلك حساباً؟ سجل الآن!
+          </Text>
+        </Link>
+      </View>
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     height: 40,
     marginBottom: 30,
-    color: 'white',
+    color: '#528D95',
     borderBottomColor: '#528D95',
     borderBottomWidth: 1,
   },
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   buttontext: {
     color: 'white',
     fontWeight: 'bold',
+    fontSize: 18,
   },
 
   register: {

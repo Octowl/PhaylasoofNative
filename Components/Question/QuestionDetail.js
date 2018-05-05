@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
-import { Container, Thumbnail, Content, Button, Card, CardItem, Text, Body, Left, Right } from "native-base";
+import { Body, Button, Card, CardItem, Container, Content, Left, Right, Text, Thumbnail } from "native-base";
 
 import Store from '../Store/Store.js';
 
 export default class QuestionDetail extends Component {
+
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     categories: Store.categories,
+  //   }
+  //   console.log("hi");
+  // // }
+  // //
+  // componentDidMount() {
+  //   Store.categories.forEach(category => {Store.fetchQuestions(category.questions)});
+  // }
 
   render() {
 
@@ -16,7 +28,7 @@ export default class QuestionDetail extends Component {
         <Content padder>
               <Body>
                 <Text style={{textAlign: 'right', color: '#528D95'}}>{question.category}</Text>
-                <Text  style = {{color: '#528D95'}}>
+                <Text  style = {styles.question}>
                   {question.question}
                   {"\n"}
                 </Text>
@@ -32,6 +44,10 @@ export default class QuestionDetail extends Component {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#B4A298',
+  },
+  question: {
+    color: '#528D95',
+    marginBottom: 10,
   },
   answerprofile: {
     color: '#739B93',

@@ -31,12 +31,11 @@ export default observer(class CategoryDetail extends Component {
                   {this.state.category.category_description}
                   {"\n"}
                 </Text>
-                <Button small style={styles.card}><Text> تابع </Text> </Button>
+                <Button small style={styles.card}><Text> تابع </Text></Button>
                 <List
                     dataArray={questions.slice()}
                     renderRow={(question) => <QuestionCard question={question} />}
                 />
-
               </Body>
         </Content>
       </Container>

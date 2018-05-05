@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet} from 'react-native';
-import { Container, Thumbnail, Content, Button, Card, CardItem, Text, Body, Left, Right } from "native-base";
+import { Body, Button, Card, CardItem, Container, Content, Left, Right, Text, Thumbnail } from "native-base";
 
 
 export default class AnsweredQuestionCard extends Component {
