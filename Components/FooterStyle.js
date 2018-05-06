@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Link } from 'react-router-native';
 import { Badge, Button, Footer, FooterTab, Icon, Text } from 'native-base';
+import Store from './Store/Store.js';
+
 
 export default class FooterStyle extends Component {
   render() {
@@ -25,7 +27,7 @@ export default class FooterStyle extends Component {
               <Icon active name="notifications" style={styles.icon} />
               <Text style={styles.icontext}>إشعارات</Text>
             </Link>
-            <Link to='/signin' component={Button} vertical>
+            <Link to='/profile' component={Button} vertical>
               <Icon name="person" style={styles.icon} />
               <Text style={styles.icontext}>حسابك</Text>
             </Link>

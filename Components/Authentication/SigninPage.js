@@ -1,21 +1,43 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-native';
+import {observer} from 'mobx-react';
 import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Button, Title } from 'native-base';
+import Store from '../Store/Store.js';
 
-export default class SigninPage extends Component {
+
+export default observer(class SigninPage extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: "",
+      password: "",
+    }
+    this.SigninUser = this.SigninUser.bind(this);
+  }
+
+  SigninUser() {
+    Store.username = this.state.username;
+    Store.password = this.state.password;
+    console.log(Store.isLoggedIn);
+    Store.signin();
+    console.log(Store.isLoggedIn);
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>تسجيل الدخول</Text>
-        <TextInput style={styles.textinput} placeholder='اسم المستخدم' placeholderTextColor='#739B93'
-                   autoCapitalize='none' onChangeText={this.setName}/>
-        <TextInput style={styles.textinput} placeholder="كلمة السر" placeholderTextColor='#739B93' secureTextEntry={true} />
-        <TouchableOpacity style={styles.buttonstyle}>
+        <TextInput style={styles.textinput} placeholder="اسم المستخدم" placeholderTextColor='#739B93'
+                   value={this.state.username}
+                   onChangeText={(e) => this.setState({username: e})}/>
+        <TextInput style={styles.textinput} placeholder="كلمة السر" placeholderTextColor='#739B93' secureTextEntry={true}
+                   value={this.state.password}
+                   onChangeText={(e) => this.setState({password: e})}/>
+        <TouchableOpacity style={styles.buttonstyle} onPress={this.SigninUser}>
           <Text style={styles.buttontext}>سجل دخولك</Text>
         </TouchableOpacity>
-        <Link to='./signup' component={Button} transparent>
+        <Link to='/signup' component={Button} transparent>
           <Text style={styles.register}>
             ألا تمتلك حساباً؟ سجل الآن!
           </Text>
@@ -23,7 +45,7 @@ export default class SigninPage extends Component {
       </View>
     );
   }
-}
+})
 
 const styles = StyleSheet.create({
   container: {

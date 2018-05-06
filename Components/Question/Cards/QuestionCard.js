@@ -7,8 +7,6 @@ export default class QuestionCard extends Component {
 
   render() {
     const question = this.props.question;
-    // console.log(question);
-
     return (
         <Content padder>
           <Card>

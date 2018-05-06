@@ -66,35 +66,14 @@ class myStore {
         })
       }
 
-  signup() {
-    return this.storeUser('register');
-  }
-
-  login() {
-    return this.storeUser('login');
-  }
-
-  logout() {
-    AsyncStorage.removeItem("currentUser");
-    AsyncStorage.removeItem("token");
-    this.currentUser = null;
-    this.token = null;
-  }
-
-  storeUser(type) {
-    return axios.post(`http://127.0.0.1:8000/api/${type}/`, {
+  register() {
+    return axios.post('http://127.0.0.1:8000/api/register/', {
       username: this.username,
-      firstname: this.firstname,
-      lastname: this.lastname,
       email: this.email,
       password: this.password,
     })
     .then(res => res.data)
-    .then(({username, token}) => {
-      AsyncStorage.setItem("currentUser", username);
-      AsyncStorage.setItem("token", token);
-      this.currentUser = username;
-      this.token = token;
+    .then(() => {
       this.resetForm();
     })
     .catch(err => {
@@ -105,6 +84,39 @@ class myStore {
           ))
         );
       });
+  }
+
+  signin() {
+    console.log('Hi')
+    return axios.post('http://127.0.0.1:8000/api/login/', {
+      username: this.username,
+      password: this.password,
+    })
+    .then(res => res.data)
+    .then(({username, token}) => {
+      AsyncStorage.setItem("currentUser", username);
+      AsyncStorage.setItem("token", token);
+      this.currentUser = username;
+      this.token = token;
+      this.resetForm();
+      // console.log(this.currentUser);
+      // console.log(this.token);
+    })
+    .catch(err => {
+      Object.entries(err.response.data).forEach(
+        ([errType, errList]) =>
+          this.error = this.error.concat(errList.map(
+            message => <p key={errType+message}><strong>{errType}:</strong> {message}</p>
+          ))
+        );
+      });
+  }
+
+  logout() {
+    AsyncStorage.removeItem("currentUser");
+    AsyncStorage.removeItem("token");
+    this.currentUser = null;
+    this.token = null;
   }
 
   resetForm() {
@@ -118,14 +130,14 @@ class myStore {
     return !!this.token;
   }
 
-    fetchCategories() {
-      return axios.get('http://127.0.0.1:8000/api/category_list/')
-            .then(res => res.data)
-            .then(categories => {
-              this.categories = categories;
-            })
-            .catch(err => console.error(err));
-          }
+  fetchCategories() {
+    // return axios.get('http://127.0.0.1:8000/api/category_list/')
+    //   .then(res => res.data)
+    //   .then(categories => {
+    //     this.categories = categories;
+    //   })
+    //   .catch(err => console.error(err));
+      }
 
           // fetchCategories() {
           //   return axios.get('http://127.0.0.1:8000/api/category_list/')

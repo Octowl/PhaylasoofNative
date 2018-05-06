@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-native';
+import {observer} from 'mobx-react';
+
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { Button, Title } from 'native-base';
 import Store from '../Store/Store.js';
 
-export default class SignupPage extends Component {
+export default observer(class SignupPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -23,17 +25,17 @@ export default class SignupPage extends Component {
     Store.lastname = this.state.lastname;
     Store.email = this.state.email;
     Store.password = this.state.password;
-    Store.signup();
+    Store.register();
   }
 
   render() {
     return (
         <View style={styles.container}>
-          <Text style={styles.title}>التسجيل</Text>
+          <Text style={styles.title}>أنشئ حساباً جديداً</Text>
           <TextInput style={styles.textinput} placeholder="اسم المستخدم" placeholderTextColor='#739B93'
                      value={this.state.username}
                      onChangeText={(e) => this.setState({username: e})}/>
-          <TextInput style={styles.textinput} placeholder="الاسم الأول" placeholderTextColor='#739B93'
+          {/* <TextInput style={styles.textinput} placeholder="الاسم الأول" placeholderTextColor='#739B93'
                      value={this.state.firstname}
                      onChangeText={(e) => this.setState({firstname: e})} />
           <TextInput style={styles.textinput} placeholder="اسم العائلة" placeholderTextColor='#739B93'
@@ -41,7 +43,7 @@ export default class SignupPage extends Component {
                      onChangeText={(e) => this.setState({lastname: e})} />
           <TextInput style={styles.textinput} placeholder="البريد الإلكتروني" placeholderTextColor='#739B93'
                      value={this.state.email}
-                     onChangeText={(e) => this.setState({email: e})} />
+                     onChangeText={(e) => this.setState({email: e})} /> */}
           <TextInput style={styles.textinput} placeholder="كلمة السر" placeholderTextColor='#739B93' secureTextEntry={true}
                      value={this.state.password}
                      onChangeText={(e) => this.setState({password: e})} />
@@ -56,7 +58,7 @@ export default class SignupPage extends Component {
         </View>
     );
   }
-}
+})
 
 
 const styles = StyleSheet.create({
