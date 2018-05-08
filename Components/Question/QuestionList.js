@@ -10,6 +10,7 @@ export default observer(class QuestionList extends Component {
 
 
   render() {
+        /* Aziz: dead code */
         // const questions = Store.categories.map(category => Store.fetchQuestions(category.id));
         console.log(Store.questions);
 

@@ -6,6 +6,9 @@ import Store from '../Store/Store.js';
 
 export default class QuestionDetail extends Component {
 
+
+  /* Aziz: dead code */
+  
   // constructor(props) {
   //   super(props)
   //   this.state = {

@@ -9,6 +9,12 @@ import QuestionCard from '../Question/Cards/QuestionCard.js';
 export default observer(class CategoryDetail extends Component {
   constructor(props) {
     super(props)
+
+    /*
+    * Aziz:
+    * This doesn't need to be on the state.
+    * It can just be a variable in your render method.
+    */
     this.state = {
       category: Store.getCategoryByID(this.props.match.params.categoryID)
     }
@@ -19,6 +25,7 @@ export default observer(class CategoryDetail extends Component {
   }
 
   render() {
+    /* Aziz: these are not the questions you are looking for... */
     const questions = Store.apiquestions;
     console.log(questions);
     return (

@@ -9,6 +9,12 @@ import Store from '../Store/Store.js';
 export default observer(class SignupPage extends Component {
   constructor(props) {
     super(props)
+
+    /*
+    * Aziz:
+    * you should use either the store or the state
+    * to manage the form data. There's no need to use both.
+    */
     this.state = {
       username: "",
       firstname: "",
@@ -35,6 +41,9 @@ export default observer(class SignupPage extends Component {
           <TextInput style={styles.textinput} placeholder="اسم المستخدم" placeholderTextColor='#739B93'
                      value={this.state.username}
                      onChangeText={(e) => this.setState({username: e})}/>
+
+                     {/* Aziz: dead code */}
+                     
           {/* <TextInput style={styles.textinput} placeholder="الاسم الأول" placeholderTextColor='#739B93'
                      value={this.state.firstname}
                      onChangeText={(e) => this.setState({firstname: e})} />
